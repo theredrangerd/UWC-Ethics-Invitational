@@ -842,10 +842,8 @@ p { text-wrap: pretty; }
 .course__gap {
   position: absolute;
   left: 54%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  padding: 0 22px;
-  background: var(--color-bg-primary);
+  top: calc(50% - 14px);
+  transform: translate(-50%, -100%);
   font-family: var(--font-editorial);
   font-style: italic;
   font-size: 1.5rem;
