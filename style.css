@@ -849,6 +849,14 @@ p { text-wrap: pretty; }
   font-size: 1.5rem;
   color: var(--color-gold-primary);
   white-space: nowrap;
+  animation: gap-slide 6s ease-in-out infinite alternate;
+}
+@keyframes gap-slide {
+  from { left: 24%; }
+  to { left: 78%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .course__gap { animation: none; }
 }
 .stage {
   position: absolute;
