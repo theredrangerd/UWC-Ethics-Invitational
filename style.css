@@ -844,14 +844,12 @@ p { text-wrap: pretty; }
   left: 54%;
   top: 50%;
   transform: translate(-50%, -50%);
-  padding: 8px 26px;
-  border: 1px dashed var(--color-border-accent);
-  border-radius: var(--radius-full);
+  padding: 0 22px;
   background: var(--color-bg-primary);
   font-family: var(--font-editorial);
   font-style: italic;
   font-size: 1.5rem;
-  color: var(--color-text-secondary);
+  color: var(--color-gold-primary);
   white-space: nowrap;
 }
 .stage {
