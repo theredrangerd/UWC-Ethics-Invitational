@@ -6,5 +6,5 @@ export const Config = {
   REGISTRATION_CLOSE: '2026-10-26T23:59:59+08:00',
 
   // REPLACE with the real registration Google Form link once it exists.
-  REGISTRATION_FORM_URL: 'REPLACE_WITH_REGISTRATION_GOOGLE_FORM_URL',
+  REGISTRATION_FORM_URL: 'https://docs.google.com/forms/d/e/1FAIpQLSe3Bg2JbJzElYygbBjG1JcquZADu4hnKUdMRZgGM388ZJsBrA/viewform',
 };
