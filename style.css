@@ -1122,3 +1122,141 @@ p { text-wrap: pretty; }
   background: var(--color-gold-surface);
   border-color: var(--color-gold-primary);
 }
+
+/* --- Register call-to-action panel --- */
+.enter {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 56px;
+  align-items: center;
+  margin: 56px auto 0;
+  padding: 72px 64px;
+  border: 1px solid var(--color-border-accent);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(ellipse 60% 80% at 100% 0%, rgba(212, 175, 55, 0.18), transparent 70%),
+    linear-gradient(160deg, #1b1f26, var(--color-bg-primary) 70%);
+  box-shadow: var(--shadow-card), inset 0 0 0 6px var(--color-bg-primary), inset 0 0 0 7px rgba(212, 175, 55, 0.22);
+}
+.enter::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  right: -14%;
+  top: 50%;
+  width: 70%;
+  aspect-ratio: 1;
+  transform: translateY(-50%);
+  background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' fill='none' stroke='%23D4AF37' stroke-width='1'><circle cx='200' cy='200' r='198'/><ellipse cx='200' cy='200' rx='140' ry='198'/><ellipse cx='200' cy='200' rx='80' ry='198'/><ellipse cx='200' cy='200' rx='28' ry='198'/><ellipse cx='200' cy='200' rx='198' ry='60'/><ellipse cx='200' cy='200' rx='198' ry='130'/></svg>") center / contain no-repeat;
+  opacity: 0.2;
+  -webkit-mask-image: radial-gradient(circle, #000 45%, transparent 72%);
+  mask-image: radial-gradient(circle, #000 45%, transparent 72%);
+  pointer-events: none;
+}
+.enter__title {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(2.6rem, 5.4vw, 4.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  margin: 0 0 22px;
+  text-align: left;
+  color: var(--color-text-primary);
+}
+.enter__lede {
+  max-width: 34em;
+  margin: 0 0 32px;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  text-align: left;
+  color: var(--color-text-secondary);
+}
+.enter__lede strong { color: var(--color-gold-hover); font-weight: 600; }
+.enter__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 36px;
+  margin: 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border-accent);
+}
+.enter__facts dt {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+.enter__facts dd {
+  margin: 2px 0 0;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--color-gold-primary);
+}
+
+.enter__path {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.enter__path::before {
+  content: '';
+  position: absolute;
+  left: 27px;
+  top: 40px;
+  bottom: 40px;
+  width: 1px;
+  background: linear-gradient(var(--color-gold-primary), rgba(212, 175, 55, 0.15));
+}
+.enter__step {
+  position: relative;
+  display: flex;
+  gap: 24px;
+  padding: 0 0 36px;
+  text-align: left;
+}
+.enter__step:last-child { padding-bottom: 0; }
+.enter__num {
+  flex: 0 0 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--color-gold-primary);
+  border-radius: 50%;
+  background: var(--color-bg-primary);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--color-gold-primary);
+}
+.enter__step:first-child .enter__num {
+  background: var(--color-accent-gradient);
+  color: #08090B;
+  box-shadow: 0 0 0 6px var(--color-gold-surface), 0 0 32px var(--color-gold-glow);
+}
+.enter__body h4 {
+  margin: 4px 0 6px;
+  font-family: var(--font-subhead);
+  font-size: 1.35rem;
+  color: var(--color-text-primary);
+}
+.enter__body p {
+  margin: 0 0 18px;
+  color: var(--color-text-secondary);
+}
+.enter .btn--primary {
+  box-shadow: 0 8px 28px -6px var(--color-gold-glow);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.enter .btn--primary:hover { transform: translateY(-2px); box-shadow: 0 14px 36px -6px rgba(212, 175, 55, 0.55); }
+.enter .btn:focus-visible { outline: 2px solid var(--color-gold-hover); outline-offset: 3px; }
+.enter .btn--pending, .enter .btn--disabled { box-shadow: none; transform: none; }
+
+@media (max-width: 860px) {
+  .enter { grid-template-columns: 1fr; gap: 44px; padding: 48px 28px; }
+  .enter::before { width: 120%; right: -40%; top: 20%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .enter .btn--primary { transition: none; }
+}
