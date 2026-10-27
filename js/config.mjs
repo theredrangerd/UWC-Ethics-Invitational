@@ -7,4 +7,7 @@ export const Config = {
 
   // REPLACE with the real registration Google Form link once it exists.
   REGISTRATION_FORM_URL: 'https://docs.google.com/forms/d/e/1FAIpQLSe3Bg2JbJzElYygbBjG1JcquZADu4hnKUdMRZgGM388ZJsBrA/viewform',
+
+  // Shown as a contact button once registration has closed.
+  LATE_REGISTRATION_EMAIL: 'austi118767@gapps.uwcsea.edu.sg',
 };

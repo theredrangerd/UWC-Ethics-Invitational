@@ -35,6 +35,36 @@ function nowISO() {
   return new Date().toISOString();
 }
 
+// After the deadline, the first step turns into a late-entry request by email.
+function showLateRegistration(cta) {
+  const email = Config.LATE_REGISTRATION_EMAIL;
+  const subject = encodeURIComponent('Late registration – UWC Ethics Invitational 2026');
+
+  document.getElementById('register')?.classList.add('enter--closed');
+
+  const lede = document.getElementById('enter-lede');
+  if (lede) {
+    lede.innerHTML = 'Three to five students, one case, four rounds of live ethical reasoning over Zoom. Registration closed on <strong>26 October 2026</strong>.';
+  }
+
+  const title = document.getElementById('register-step-title');
+  if (title) title.textContent = 'Missed the deadline?';
+
+  const text = document.getElementById('register-step-text');
+  if (text) text.textContent = 'Registration has closed, but late places may still be available. Email the organising team and we’ll let you know.';
+
+  cta.textContent = 'Email the organisers';
+  cta.href = `mailto:${email}?subject=${subject}`;
+
+  const address = document.createElement('p');
+  address.className = 'enter__address';
+  address.textContent = email;
+  cta.after(address);
+
+  const payText = document.querySelector('#pay-step p');
+  if (payText) payText.textContent = 'Already registered? Settle the $203 SGD fee through the secure payment portal.';
+}
+
 function initRegistrationCTA() {
   const cta = document.getElementById('registration-cta');
   if (!cta) return;
@@ -47,9 +77,7 @@ function initRegistrationCTA() {
     cta.classList.add('btn--pending');
     cta.removeAttribute('href');
   } else if (state === 'after') {
-    cta.textContent = 'Registration closed';
-    cta.classList.add('btn--disabled');
-    cta.removeAttribute('href');
+    showLateRegistration(cta);
   } else if (!formUrlReady) {
     cta.textContent = 'Registration link coming soon';
     cta.classList.add('btn--disabled');

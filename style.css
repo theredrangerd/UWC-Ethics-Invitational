@@ -1259,6 +1259,37 @@ p { text-wrap: pretty; }
 .enter .btn:focus-visible { outline: 2px solid var(--color-gold-hover); outline-offset: 3px; }
 .enter .btn--pending, .enter .btn--disabled { box-shadow: none; transform: none; }
 
+/* Registration closed: the late-entry email becomes the box's single focal action */
+.enter { scroll-margin-top: 96px; }
+.enter--closed .enter__step:first-child .enter__body {
+  flex: 1;
+  padding: 24px 28px 26px;
+  margin-top: -6px;
+  border: 1px solid var(--color-border-accent);
+  border-radius: var(--radius-md, 14px);
+  background: linear-gradient(150deg, rgba(212, 175, 55, 0.14), rgba(212, 175, 55, 0.03) 70%);
+}
+.enter--closed .enter__step:first-child h4 { margin-top: 0; color: var(--color-gold-hover); }
+.enter--closed #registration-cta { display: block; text-align: center; }
+.enter__body .enter__address {
+  margin: 12px 0 0;
+  font-size: 0.85rem;
+  text-align: center;
+  color: var(--color-text-muted);
+  user-select: all;
+  overflow-wrap: anywhere;
+}
+.enter--closed .enter__step:last-child { opacity: 0.6; }
+.enter--closed .enter__step:last-child:hover,
+.enter--closed .enter__step:last-child:focus-within { opacity: 1; }
+.enter--closed .enter__step:last-child .enter__body h4 { font-size: 1.1rem; }
+@media (max-width: 600px) {
+  .enter { scroll-margin-top: 160px; }
+  .enter--closed .enter__step { gap: 16px; }
+  .enter--closed .enter__step:first-child .enter__body { padding: 20px 18px; }
+  .enter--closed #registration-cta { padding: 16px 20px; font-size: 1rem; }
+}
+
 @media (max-width: 860px) {
   .enter { grid-template-columns: 1fr; gap: 44px; padding: 48px 28px; }
   .enter::before { width: 120%; right: -40%; top: 20%; }
