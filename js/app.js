@@ -44,7 +44,7 @@ function showLateRegistration(cta) {
 
   const lede = document.getElementById('enter-lede');
   if (lede) {
-    lede.innerHTML = 'Three to five students, one case, four rounds of live ethical reasoning over Zoom. Registration closed on <strong>26 October 2026</strong>.';
+    lede.innerHTML = 'Three to five students, one case, four heats of live ethical reasoning over Zoom. Registration closed on <strong>26 October 2026</strong>.';
   }
 
   const title = document.getElementById('register-step-title');
