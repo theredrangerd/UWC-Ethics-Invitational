@@ -1369,7 +1369,6 @@ p { text-wrap: pretty; }
   font-size: clamp(2.2rem, 8.5vw, 5.2rem);
   line-height: 1.08;
   color: var(--color-text-primary);
-  text-shadow: 0 0 40px var(--live-glow);
   overflow-wrap: anywhere;
 }
 .live__instruction {
