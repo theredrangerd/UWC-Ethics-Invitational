@@ -1297,3 +1297,145 @@ p { text-wrap: pretty; }
 @media (prefers-reduced-motion: reduce) {
   .enter .btn--primary { transition: none; }
 }
+
+
+/* ==========================================================================
+   LIVE COMPETITION BOARD (data/live.json — see docs/live-day-cheatsheet.md)
+   ========================================================================== */
+.live[hidden], .live-details[hidden], .hero[hidden] { display: none; }
+
+.live {
+  position: relative;
+  isolation: isolate;
+  min-height: 78svh;
+  display: flex;
+  align-items: center;
+  padding: 110px 0 64px;
+  text-align: center;
+  overflow: hidden;
+  background-image: url("assets/resources/globev2.png");
+  background-size: cover;
+  background-position: center;
+  --live-accent: var(--color-gold-primary);
+  --live-glow: var(--color-gold-glow);
+}
+.live::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--color-bg-primary);
+  opacity: 0.86;
+}
+.live > .container { width: 100%; }
+
+.live__panel[data-state="round"] { --live-accent: var(--color-gold-primary); --live-glow: var(--color-gold-glow); }
+.live__panel[data-state="main-room"] { --live-accent: #7CC4E8; --live-glow: rgba(124, 196, 232, 0.3); }
+.live__panel[data-state="break"] { --live-accent: var(--color-bronze); --live-glow: var(--color-bronze-glow); }
+.live__panel[data-state="info"] { --live-accent: var(--color-link); --live-glow: rgba(163, 183, 156, 0.25); }
+.live__panel[data-state="finished"] { --live-accent: var(--color-silver); --live-glow: var(--color-silver-glow); }
+
+.live__panel { max-width: 960px; margin: 0 auto; }
+
+.live__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-badge);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  font-size: 0.85rem;
+  color: var(--live-accent);
+  border: 1px solid var(--live-accent);
+  border-radius: var(--radius-full);
+  padding: 6px 16px;
+  margin-bottom: 28px;
+}
+.live__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--live-accent);
+  box-shadow: 0 0 0 0 var(--live-glow);
+  animation: live-pulse 1.8s ease-out infinite;
+}
+@keyframes live-pulse {
+  0% { box-shadow: 0 0 0 0 var(--live-glow); }
+  70% { box-shadow: 0 0 0 12px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+.live__headline {
+  font-size: clamp(2.2rem, 8.5vw, 5.2rem);
+  line-height: 1.08;
+  color: var(--color-text-primary);
+  text-shadow: 0 0 40px var(--live-glow);
+  overflow-wrap: anywhere;
+}
+.live__instruction {
+  margin: 22px auto 0;
+  max-width: 34ch;
+  font-size: clamp(1.15rem, 3vw, 1.7rem);
+  color: var(--live-accent);
+  font-family: var(--font-editorial);
+  font-weight: 600;
+}
+.live__cta { margin-top: 36px; }
+.live__updated {
+  margin-top: 32px;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+.live__note { color: var(--color-bronze); margin-left: 10px; }
+.live__note[hidden] { display: none; }
+
+/* Announcements + competition info */
+.live-details { padding: 64px 0 24px; }
+.live-announcements, .live-info { margin-bottom: 48px; }
+.live-announcements__list, .live-info__links, .live-info__schedule { list-style: none; }
+.live-announcements__item {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  margin-bottom: 12px;
+}
+.live-announcements__item--pinned { border-color: var(--color-border-accent); background: var(--color-gold-surface); }
+.live-announcements__item p { margin-top: 4px; overflow-wrap: anywhere; }
+.live-announcements__pin {
+  font-family: var(--font-badge);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-gold-primary);
+  margin-right: 10px;
+}
+.live__time { font-size: 0.85rem; color: var(--color-text-secondary); font-variant-numeric: tabular-nums; }
+.live-info__block { margin-bottom: 32px; }
+.live-info__block h3 { margin-bottom: 12px; font-size: 1.3rem; }
+.live-info__links li { margin-bottom: 8px; overflow-wrap: anywhere; }
+.live-info__links a { color: var(--color-link); text-decoration: underline; text-underline-offset: 3px; }
+.live-info__links a:hover { color: var(--color-link-hover); }
+.live-info__schedule li {
+  display: flex;
+  gap: 20px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+.live-info__schedule .live__time { min-width: 7.5em; flex-shrink: 0; }
+.live-info__rooms { width: 100%; border-collapse: collapse; }
+.live-info__rooms th, .live-info__rooms td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+.live-info__rooms th { color: var(--color-text-secondary); font-weight: 600; font-size: 0.85rem; }
+
+@media (max-width: 640px) {
+  .live { padding: 96px 0 48px; min-height: 70svh; }
+  .live-info__schedule li { flex-direction: column; gap: 2px; }
+  .live-info__rooms { display: block; overflow-x: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .live__dot { animation: none; }
+}

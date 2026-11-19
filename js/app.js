@@ -4,6 +4,7 @@ import { renderResultsHTML } from './results-render.mjs';
 import { getStageState } from './funnel-state.mjs';
 import { Config } from './config.mjs';
 import { initScrollReveal } from './scroll-reveal.mjs';
+import { initLive } from './live.mjs';
 
 async function initGallery() {
   const root = document.getElementById('gallery-root');
@@ -93,4 +94,5 @@ function initRegistrationCTA() {
 initGallery();
 initResults();
 initRegistrationCTA();
+initLive();
 initScrollReveal();
