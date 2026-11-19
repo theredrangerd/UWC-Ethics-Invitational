@@ -1,0 +1,24 @@
+{
+  "enabled": false,
+  "state": "info",
+  "headline": "Welcome",
+  "instruction": "",
+  "button": null,
+  "updated": "2026-11-21T09:00:00+08:00",
+  "announcements": [],
+  "schedule": [
+    { "time": "2026-11-21T19:00:00+08:00", "label": "Registration & Opening Ceremony / Briefing" },
+    { "time": "2026-11-21T19:30:00+08:00", "label": "Heat 1" },
+    { "time": "2026-11-21T20:55:00+08:00", "label": "Heat 2" },
+    { "time": "2026-11-21T22:20:00+08:00", "label": "Heat 3" },
+    { "time": "2026-11-21T23:35:00+08:00", "label": "Announcements (between Heat 3 and Heat 4)" },
+    { "time": "2026-11-21T23:50:00+08:00", "label": "Heat 4" }
+  ],
+  "links": [
+    {
+      "label": "Join Zoom — Meeting ID 862 5138 8707 · Passcode 123456",
+      "url": "https://us06web.zoom.us/j/86251388707?pwd=oaUyUbQxPxph14EGvAWgoWaNagFeke.1"
+    }
+  ],
+  "rooms": []
+}
