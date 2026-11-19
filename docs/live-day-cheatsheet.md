@@ -41,7 +41,7 @@ Each block below is a complete, validated `data/live.json`. Replace the whole fi
   "headline": "WELCOME — WE START AT 7:00 PM SGT",
   "instruction": "Join the Zoom main room by 7:00 PM Singapore Time.",
   "button": {
-    "label": "Open Zoom",
+    "label": "Join the main room",
     "url": "https://us06web.zoom.us/j/86251388707?pwd=oaUyUbQxPxph14EGvAWgoWaNagFeke.1"
   },
   "updated": "2026-11-21T19:32:00+08:00",
@@ -148,7 +148,7 @@ Each block below is a complete, validated `data/live.json`. Replace the whole fi
   "headline": "HEAT 1 ENDED — RETURN TO THE MAIN ROOM",
   "instruction": "Leave your breakout room and rejoin the main Zoom room now.",
   "button": {
-    "label": "Open Zoom",
+    "label": "Join the main room",
     "url": "https://us06web.zoom.us/j/86251388707?pwd=oaUyUbQxPxph14EGvAWgoWaNagFeke.1"
   },
   "updated": "2026-11-21T19:32:00+08:00",
