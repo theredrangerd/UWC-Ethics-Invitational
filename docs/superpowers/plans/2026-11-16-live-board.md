@@ -22,7 +22,7 @@
 - On fetch/parse/validation failure after a good render: keep the last good render and show "Reconnecting…".
 - Times render in the viewer's local time zone with zone abbreviation.
 - `aria-live="polite"` on the headline; LIVE dot animation respects `prefers-reduced-motion`.
-- Run tests with `node --test js/`.
+- Run tests with `node --test js/*.test.mjs`.
 
 ## Review Focus
 
@@ -93,7 +93,7 @@
 - [ ] **Step 3: app.js** — `import { initLive } from './live.mjs';` and call `initLive();` after `initRegistrationCTA();`.
 - [ ] **Step 4: CSS** appended to `style.css`, using existing tokens: `[hidden]` safeguard (`.live[hidden], .live-details[hidden], .hero[hidden] { display: none; }`); `.live` full-bleed panel with large `.live__headline` (`clamp(2.4rem, 8vw, 5rem)`, `--font-display`), readable `.live__instruction`, centered, min-height ≈ 70vh on desktop and no horizontal overflow at 360px; per-state accent via `.live[data-state="round"|"main-room"|"break"|"info"|"finished"]` setting a local `--live-accent` (round = gold, main-room = a distinct attention colour that is not gold, finished = silver/calm); pulsing "LIVE" dot, disabled under `@media (prefers-reduced-motion: reduce)`; styles for announcements list, rooms table, links, schedule, and `.live__note`.
 - [ ] **Step 5: Verify in browser.** From the repo root run `python3 -m http.server 8000`. With `enabled: false`: homepage is unchanged. Temporarily set `enabled: true` and cycle through every `state` value with realistic content (announcements incl. a pinned one, rooms, links, schedule): confirm board replaces hero, headline readable at 375px and 1280px widths, info block appears below, rest of site intact. Edit the JSON while the page is open and confirm it updates within ~20s without reload. Introduce a trailing comma and confirm the board stays and "Reconnecting…" appears; fix it and confirm the note clears. Revert `data/live.json` to the shipped disabled sample afterwards.
-- [ ] **Step 6: Run** `node --test js/` — all tests pass.
+- [ ] **Step 6: Run** `node --test js/*.test.mjs` — all tests pass.
 - [ ] **Step 7: Commit** — `git add index.html js/live.mjs js/app.js style.css && git commit -m "Wire live board into homepage with polling and styles"`
 
 ### Task 4: Day-of cheat sheet
